@@ -1,9 +1,11 @@
 package com.lambdaschool.javashoppingcart.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -18,16 +20,19 @@ public class Product {
     private int qtyinstock;
 
     @ManyToMany(mappedBy = "products")
-    @JsonIgnoreProperties("products")
-    private Set<Supplier> suppliers;
+//    @JsonIgnoreProperties("products")
+    @JsonIgnore
+    private Set<Supplier> suppliers = new HashSet<>();
 
     @OneToMany(mappedBy = "product")
-    @JsonIgnoreProperties("product")
-    private Set<Orderitem> orderitems;
+//    @JsonIgnoreProperties("product")
+    @JsonIgnore
+    private Set<Orderitem> orderitems = new HashSet<>();
 
     @OneToMany(mappedBy = "product")
-    @JsonIgnoreProperties("product")
-    private Set<ShoppingItem> shoppingitems;
+//    @JsonIgnoreProperties("product")
+    @JsonIgnore
+    private Set<ShoppingItem> shoppingitems = new HashSet<>();
 
     public Product() {
     }

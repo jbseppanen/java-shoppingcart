@@ -12,7 +12,7 @@ public class Shopper {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long shopperid;
 
-    private String firstname, lastname, billingaddress, shippingaddress, city, state, zipcode, phonenumber, paymethod;
+    private String firstname, lastname, billingaddress, billingcity, billingstate, billingzip, shippingaddress, shippingcity, shippingstate, shippingzipcode, phonenumber, paymethod;
 
     @OneToMany(mappedBy = "shopper")
     @JsonIgnoreProperties("shopper")
@@ -57,6 +57,30 @@ public class Shopper {
         this.billingaddress = billingaddress;
     }
 
+    public String getBillingcity() {
+        return billingcity;
+    }
+
+    public void setBillingcity(String billingcity) {
+        this.billingcity = billingcity;
+    }
+
+    public String getBillingstate() {
+        return billingstate;
+    }
+
+    public void setBillingstate(String billingstate) {
+        this.billingstate = billingstate;
+    }
+
+    public String getBillingzip() {
+        return billingzip;
+    }
+
+    public void setBillingzip(String billingzip) {
+        this.billingzip = billingzip;
+    }
+
     public String getShippingaddress() {
         return shippingaddress;
     }
@@ -65,28 +89,28 @@ public class Shopper {
         this.shippingaddress = shippingaddress;
     }
 
-    public String getCity() {
-        return city;
+    public String getShippingcity() {
+        return shippingcity;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setShippingcity(String shippingcity) {
+        this.shippingcity = shippingcity;
     }
 
-    public String getState() {
-        return state;
+    public String getShippingstate() {
+        return shippingstate;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setShippingstate(String shippingstate) {
+        this.shippingstate = shippingstate;
     }
 
-    public String getZipcode() {
-        return zipcode;
+    public String getShippingzipcode() {
+        return shippingzipcode;
     }
 
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
+    public void setShippingzipcode(String shippingzipcode) {
+        this.shippingzipcode = shippingzipcode;
     }
 
     public String getPhonenumber() {

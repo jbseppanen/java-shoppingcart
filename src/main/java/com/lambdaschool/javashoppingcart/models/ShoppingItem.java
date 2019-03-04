@@ -12,13 +12,17 @@ public class ShoppingItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long shoppingitemid;
 
-    private Product product;
     private int itemqty;
 
     @ManyToOne
     @JoinColumn(name = "cartid")
     @JsonIgnoreProperties("items")
     private Cart cart;
+
+    @ManyToOne
+    @JoinColumn(name = "productid")
+    @JsonIgnoreProperties("shoppingitems")
+    private Product product;
 
     public ShoppingItem() {
     }
@@ -29,14 +33,6 @@ public class ShoppingItem {
 
     public void setShoppingitemid(long shoppingitemid) {
         this.shoppingitemid = shoppingitemid;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 
     public int getItemqty() {
@@ -53,5 +49,13 @@ public class ShoppingItem {
 
     public void setCart(Cart cart) {
         this.cart = cart;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

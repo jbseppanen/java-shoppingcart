@@ -1,30 +1,47 @@
 package com.lambdaschool.javashoppingcart.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 
 @Entity
 public class Orderitem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long shoppingitemid;
+    private long orderitemid;
 
-    private Product product;
     private int itemqty;
+
+    @ManyToOne
+    @JoinColumn(name = "productid")
+    @JsonIgnoreProperties("orderitems")
+    private Product product;
+
+
+    @ManyToOne
+    @JoinColumn(name = "orderid")
+    @JsonIgnoreProperties("orders")
+    private Order order;
 
     public Orderitem() {
     }
 
-    public long getShoppingitemid() {
-        return shoppingitemid;
+    public long getOrderitemid() {
+        return orderitemid;
     }
 
-    public void setShoppingitemid(long shoppingitemid) {
-        this.shoppingitemid = shoppingitemid;
+    public void setOrderitemid(long orderitemid) {
+        this.orderitemid = orderitemid;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     public Product getProduct() {

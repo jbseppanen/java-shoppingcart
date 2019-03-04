@@ -14,14 +14,16 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long orderid;
 
-    private Set<ShoppingItem> items;
-
     private int shippedstatus;
 
     @ManyToOne
     @JoinColumn(name = "shopperid")
     @JsonIgnoreProperties("orders")
     private Shopper shopper;
+
+    @OneToMany(mappedBy = "order")
+    @JsonIgnoreProperties("order")
+    private Set<Orderitem> items;
 
     public Order() {
     }
@@ -34,11 +36,11 @@ public class Order {
         this.orderid = orderid;
     }
 
-    public Set<ShoppingItem> getItems() {
+    public Set<Orderitem> getItems() {
         return items;
     }
 
-    public void setItems(Set<ShoppingItem> items) {
+    public void setItems(Set<Orderitem> items) {
         this.items = items;
     }
 

@@ -21,6 +21,14 @@ public class Product {
     @JsonIgnoreProperties("products")
     private Set<Supplier> suppliers;
 
+    @OneToMany(mappedBy = "product")
+    @JsonIgnoreProperties("product")
+    private Set<Orderitem> orderitems;
+
+    @OneToMany(mappedBy = "product")
+    @JsonIgnoreProperties("product")
+    private Set<ShoppingItem> shoppingitems;
+
     public Product() {
     }
 
@@ -70,5 +78,21 @@ public class Product {
 
     public void setSuppliers(Set<Supplier> suppliers) {
         this.suppliers = suppliers;
+    }
+
+    public Set<Orderitem> getOrderitems() {
+        return orderitems;
+    }
+
+    public void setOrderitems(Set<Orderitem> orderitems) {
+        this.orderitems = orderitems;
+    }
+
+    public Set<ShoppingItem> getShoppingitems() {
+        return shoppingitems;
+    }
+
+    public void setShoppingitems(Set<ShoppingItem> shoppingitems) {
+        this.shoppingitems = shoppingitems;
     }
 }

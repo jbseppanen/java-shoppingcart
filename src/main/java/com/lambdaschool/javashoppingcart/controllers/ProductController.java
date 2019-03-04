@@ -14,12 +14,6 @@ import java.util.List;
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProductController {
 
-    @Autowired
-    ProductRepository productRepo;
 
-    @GetMapping(value = "/products")
-    public List<Product> listAllProducts() {
-        return productRepo.findAll();
-    }
 
 }

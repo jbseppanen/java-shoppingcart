@@ -11,7 +11,7 @@
     <groupId>com.lambdaschool</groupId>
     <artifactId>java-shoppingcart</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>java-shoppingcart</name>
+    <productname>java-shoppingcart</productname>
     <description>Java Shopping Cart project for Spring Boot</description>
 
     <properties>

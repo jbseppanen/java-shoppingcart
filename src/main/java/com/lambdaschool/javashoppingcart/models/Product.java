@@ -15,13 +15,13 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long productid;
-    private String name, description;
+    private String productname, description;
     private double price;
     private int qtyinstock;
 
     @ManyToMany(mappedBy = "products")
-//    @JsonIgnoreProperties("products")
-    @JsonIgnore
+    @JsonIgnoreProperties("products")
+//    @JsonIgnore
     private Set<Supplier> suppliers = new HashSet<>();
 
     @OneToMany(mappedBy = "product")
@@ -30,7 +30,7 @@ public class Product {
     private Set<Orderitem> orderitems = new HashSet<>();
 
     @OneToMany(mappedBy = "product")
-//    @JsonIgnoreProperties("product")
+    @JsonIgnoreProperties("product")
     @JsonIgnore
     private Set<ShoppingItem> shoppingitems = new HashSet<>();
 
@@ -45,12 +45,12 @@ public class Product {
         this.productid = productid;
     }
 
-    public String getName() {
-        return name;
+    public String getProductname() {
+        return productname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductname(String productname) {
+        this.productname = productname;
     }
 
     public String getDescription() {

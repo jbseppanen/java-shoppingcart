@@ -55,7 +55,7 @@ public class ShoppingItem {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(Product shoppingproduct) {
         this.product = product;
     }
 }

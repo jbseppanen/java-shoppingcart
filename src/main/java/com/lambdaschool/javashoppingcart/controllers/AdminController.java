@@ -27,11 +27,6 @@ public class AdminController {
     @Autowired
     ShopperRepository shopperRepo;
 
-    @GetMapping(value = "/products")
-    public List<Product> listAllProducts() {
-        return productRepo.findAll();
-    }
-
     @GetMapping(value = "/suppliers")
     public List<Supplier> listAllSuppliers() {
         return supplierRepo.findAll();
@@ -46,4 +41,5 @@ public class AdminController {
     public Product addNewProduct(@RequestBody Product product) throws URISyntaxException {
         return productRepo.save(product);
     }
+
 }

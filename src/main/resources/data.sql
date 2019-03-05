@@ -410,3 +410,8 @@ insert into supplierproducts (productid, supplierid) values (98, 18);
 insert into supplierproducts (productid, supplierid) values (52, 19);
 insert into supplierproducts (productid, supplierid) values (25, 2);
 insert into supplierproducts (productid, supplierid) values (71, 25);
+
+INSERT INTO user (id, password, role, username)
+    VALUES  ('1', 'userpass', 'user', 'MrShopper'),
+            ('2', 'keeperpass', 'shopkeeper', 'MrShopkeeper'),
+            ('3', 'adminpass', 'admin', 'MrAdmin');

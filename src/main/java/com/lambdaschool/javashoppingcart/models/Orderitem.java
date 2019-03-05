@@ -13,6 +13,7 @@ public class Orderitem {
     private long orderitemid;
 
     private int itemqty;
+    private double price;
 
     @ManyToOne
     @JoinColumn(name = "productid")

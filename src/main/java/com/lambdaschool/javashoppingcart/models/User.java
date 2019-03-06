@@ -1,6 +1,7 @@
 package com.lambdaschool.javashoppingcart.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
@@ -18,6 +19,10 @@ public class User {
     @JsonIgnore
     private String password;
     private String role;
+
+    @OneToOne(mappedBy = "user")
+    @JsonIgnoreProperties("user")
+    private Shopper shopper;
 
     public User() {
     }
@@ -52,6 +57,14 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Shopper getShopper() {
+        return shopper;
+    }
+
+    public void setShopper(Shopper shopper) {
+        this.shopper = shopper;
     }
 
     public List<SimpleGrantedAuthority> getAuthority() {

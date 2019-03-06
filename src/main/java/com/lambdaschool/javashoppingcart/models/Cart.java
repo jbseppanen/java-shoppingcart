@@ -1,8 +1,10 @@
 package com.lambdaschool.javashoppingcart.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -45,5 +47,17 @@ public class Cart {
 
     public void setShopper(Shopper shopper) {
         this.shopper = shopper;
+    }
+
+    @JsonIgnore
+    public Order getAsOrder() {
+        Order order = new Order();
+        Set<Orderitem> orderitems = new HashSet<>();
+        for(ShoppingItem item:items) {
+            orderitems.add(item.getAsOrderItem());
+        }
+        order.setItems(orderitems);
+        order.setShopper(shopper);
+        return order;
     }
 }

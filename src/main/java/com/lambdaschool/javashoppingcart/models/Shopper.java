@@ -26,6 +26,10 @@ public class Shopper {
     @JsonIgnore
     private Cart cart;
 
+    @OneToOne
+    @JoinColumn(name = "id")
+    private User user;
+
     public Shopper() {
     }
 

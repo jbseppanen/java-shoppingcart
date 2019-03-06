@@ -13,7 +13,7 @@ public class Orderitem {
     private long orderitemid;
 
     private int itemqty;
-    private double price;
+    private double pricepaid;
 
     @ManyToOne
     @JoinColumn(name = "productid")
@@ -59,5 +59,13 @@ public class Orderitem {
 
     public void setItemqty(int itemqty) {
         this.itemqty = itemqty;
+    }
+
+    public double getPricepaid() {
+        return pricepaid;
+    }
+
+    public void setPricepaid(double pricepaid) {
+        this.pricepaid = pricepaid;
     }
 }

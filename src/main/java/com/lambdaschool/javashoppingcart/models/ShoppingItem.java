@@ -1,5 +1,6 @@
 package com.lambdaschool.javashoppingcart.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -55,7 +56,16 @@ public class ShoppingItem {
         return product;
     }
 
-    public void setProduct(Product shoppingproduct) {
+    public void setProduct(Product product) {
         this.product = product;
+    }
+
+    @JsonIgnore
+    public Orderitem getAsOrderItem() {
+      Orderitem orderitem = new Orderitem();
+      orderitem.setItemqty(itemqty);
+      orderitem.setProduct(product);
+      orderitem.setPricepaid(product.getPrice());
+      return orderitem;
     }
 }

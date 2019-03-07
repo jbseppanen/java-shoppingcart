@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -35,7 +36,7 @@ public class ShoppingController {
     }
 
     @GetMapping(value = "/shopper/{shopperid}/cart")
-    public Cart getShopperCart(@PathVariable long shopperid) {
+    public ArrayList<Product> getShopperCart(@PathVariable long shopperid) {
         Optional<Shopper> foundShopper = shopperRepo.findById(shopperid);
         if (foundShopper.isPresent()) {
             Cart cart = foundShopper.get().getCart();
@@ -44,7 +45,16 @@ public class ShoppingController {
                 cart.setShopper(foundShopper.get());
                 cartRepo.save(cart);
             }
-            return cart;
+            ArrayList<Product> products = new ArrayList<>();
+            if (cart.getItems() != null) {
+                for (ShoppingItem item : cart.getItems()) {
+                    Product product = item.getProduct();
+                    product.setQtyinstock(item.getItemqty());
+                    products.add(product);
+                }
+            }
+
+            return products;
         }
         return null;
     }
@@ -59,6 +69,9 @@ public class ShoppingController {
                 Set<ShoppingItem> items = cart.getItems();
                 for (ShoppingItem item : items) {
                     if (item.getProduct().getProductid() == productid) {
+                        if (item.getItemqty()>=item.getProduct().getQtyinstock()) {
+                            return null; //Cannot get more than is in stock
+                        }
                         item.setItemqty(item.getItemqty() + 1);
                         return shoppingitemRepo.save(item);
                     }
@@ -86,7 +99,7 @@ public class ShoppingController {
         if (foundShopper.isPresent()) {
             Cart cart = foundShopper.get().getCart();
             if (cart != null) {
-                if (cart.getItems()!=null) {
+                if (cart.getItems() != null) {
                     order = cart.getAsOrder();
                 }
             }

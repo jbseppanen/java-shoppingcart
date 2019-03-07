@@ -152,7 +152,7 @@ insert into product (productid, productname, description, price, qtyinstock) val
 insert into product (productid, productname, description, price, qtyinstock) values (150, 'mushrooms', 'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', '99.61', 57);
 insert into product (productid, productname, description, price, qtyinstock) values (151, 'mushrooms2', 'Sed ante. Vivamus tortor. Duis mattis egestas metus.', '70.67', 76);
 insert into product (productid, productname, description, price, qtyinstock) values (152, 'mustard', 'In quis justo.', '99.22', 93);
-insert into product (productid, productname, description, price, qtyinstock) values (153, 'MyFileList.csv noodles', 'Nullam molestie nibh in lectus.', '70.09', 3);
+insert into product (productid, productname, description, price, qtyinstock) values (153, 'noodles', 'Nullam molestie nibh in lectus.', '70.09', 3);
 insert into product (productid, productname, description, price, qtyinstock) values (154, 'nut_cake', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices.', '62.60', 34);
 insert into product (productid, productname, description, price, qtyinstock) values (155, 'oats', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.', '53.71', 92);
 insert into product (productid, productname, description, price, qtyinstock) values (156, 'olives', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', '86.46', 32);
@@ -263,8 +263,6 @@ insert into product (productid, productname, description, price, qtyinstock) val
 insert into product (productid, productname, description, price, qtyinstock) values (261, 'wine_bottle', 'Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', '95.86', 92);
 insert into product (productid, productname, description, price, qtyinstock) values (262, 'wine_cup', 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', '39.70', 3);
 insert into product (productid, productname, description, price, qtyinstock) values (263, 'wine_cup2', 'Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.', '32.57', 1);
-insert into product (productid, productname, description, price, qtyinstock) values (264, 'almond', 'Suspendisse potenti. Cras in purus eu magna vulputate luctus.', '76.92', 51);
-insert into product (productid, productname, description, price, qtyinstock) values (265, 'apple2', 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst.', '82.37', 10);
 
 
 -- SupplierData--

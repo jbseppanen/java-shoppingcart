@@ -16,9 +16,9 @@ public class Cart {
 
     @OneToMany(mappedBy = "cart")
     @JsonIgnoreProperties("cart")
-    private Set <ShoppingItem> items;
+    private Set<ShoppingItem> items;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
     @JoinColumn(name = "cartid")
     private Shopper shopper;
 
@@ -53,7 +53,7 @@ public class Cart {
     public Order getAsOrder() {
         Order order = new Order();
         Set<Orderitem> orderitems = new HashSet<>();
-        for(ShoppingItem item:items) {
+        for (ShoppingItem item : items) {
             orderitems.add(item.getAsOrderItem());
         }
         order.setItems(orderitems);

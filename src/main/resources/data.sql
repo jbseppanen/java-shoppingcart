@@ -293,7 +293,7 @@ insert into supplier (supplierid, suppliername, address, city, state, zipcode, p
 insert into supplier (supplierid, suppliername, address, city, state, zipcode, phonenumber) values (24, 'Blognation', '896 Fairview Way', 'New York City', 'NY', 85446, '347-424-3303');
 insert into supplier (supplierid, suppliername, address, city, state, zipcode, phonenumber) values (25, 'Fiveclub', '41062 Corry Avenue', 'Pasadena', 'CA', 60895, '626-895-0813');
 
---Shopper Data--
+-- Shopper Data--
 
 insert into shopper (shopperid, firstname, lastname, billingaddress, billingcity, billingstate, billingzip, shippingaddress, shippingcity, shippingstate, shippingzipcode, phonenumber, paymethod) values (1, 'Van', 'Gurrado', '557 Thackeray Street', 'Tuscaloosa', 'AL', 42376, '4774 Ridgeway Crossing', 'El Paso', 'TX', 69362, '205-497-5149', 'Cash');
 insert into shopper (shopperid, firstname, lastname, billingaddress, billingcity, billingstate, billingzip, shippingaddress, shippingcity, shippingstate, shippingzipcode, phonenumber, paymethod) values (2, 'Bay', 'Giroldo', '5125 Sachtjen Alley', 'Conroe', 'TX', 66055, '0 Esker Alley', 'Montgomery', 'AL', 95734, '936-579-3633', 'Card');
@@ -306,7 +306,7 @@ insert into shopper (shopperid, firstname, lastname, billingaddress, billingcity
 insert into shopper (shopperid, firstname, lastname, billingaddress, billingcity, billingstate, billingzip, shippingaddress, shippingcity, shippingstate, shippingzipcode, phonenumber, paymethod) values (9, 'Kimmie', 'Petzold', '8847 Steensland Trail', 'Grand Forks', 'ND', 97876, '29 Loomis Alley', 'Sioux Falls', 'SD', 69024, '701-380-0385', 'Cash');
 insert into shopper (shopperid, firstname, lastname, billingaddress, billingcity, billingstate, billingzip, shippingaddress, shippingcity, shippingstate, shippingzipcode, phonenumber, paymethod) values (10, 'Lily', 'Tennison', '39 Dovetail Avenue', 'Denver', 'CO', 99750, '0103 Tennyson Pass', 'El Paso', 'TX', 78905, '303-100-5997', 'Cash');
 
---supplierproduct Join Table data--
+-- Supplierproduct Join Table data--
 
 insert into supplierproducts (productid, supplierid) values (39, 16);
 insert into supplierproducts (productid, supplierid) values (38, 14);

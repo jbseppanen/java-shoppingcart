@@ -20,7 +20,7 @@ public class Swagger2Config {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
                 .apis(RequestHandlerSelectors
-                        .basePackage("com.lambdaschool.javabookstore")) //Location of where the controller file is.
+                        .basePackage("com.lambdaschool.javashoppingcart")) //Location of where the controller file is.
                 .paths(PathSelectors.regex("/.*"))
                 .build().apiInfo(apiEndPointsInfo());
     }

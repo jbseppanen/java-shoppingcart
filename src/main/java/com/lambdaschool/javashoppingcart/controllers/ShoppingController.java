@@ -120,10 +120,10 @@ public class ShoppingController {
 
     @PostMapping("/shopper")
     public Shopper addNewShopper(@RequestBody Shopper shopper) throws URISyntaxException {
-//        shopper = shopperRepo.save(shopper);
-        Cart cart = new Cart();
-        cart.setShopper(shopper);
+//        shopperRepo.addShopper(shopper.getFirstname(), shopper.getLastname(), shopper.getBillingaddress(), shopper.getBillingcity(),
+//        shopper.getBillingstate(), shopper.getBillingzip(), shopper.getShippingaddress(), shopper.getShippingcity(),
+//                shopper.getShippingstate(), shopper.getShippingzipcode(), shopper.getPhonenumber(), shopper.getPaymethod());
+//        return shopperRepo.findByFirstnameAndLastnameAndBillingaddress(shopper.getFirstname(), shopper.getLastname(), shopper.getBillingaddress());
         return shopperRepo.save(shopper);
     }
-
 }

@@ -33,6 +33,11 @@ public class ShopkeeperController {
         return productRepo.save(product);
     }
 
+    @PostMapping("/supplier")
+    public Supplier addNewSupplier(@RequestBody Supplier supplier) throws URISyntaxException {
+        return supplierRepo.save(supplier);
+    }
+
     @PostMapping(value = "/supplier/{supplierid}/product/{productid}")
     public Supplier addProductToSupplier(@PathVariable long supplierid, @PathVariable long productid) {
         Optional<Supplier> foundSupplier = supplierRepo.findById(supplierid);

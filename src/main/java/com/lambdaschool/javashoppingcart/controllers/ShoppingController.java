@@ -69,7 +69,7 @@ public class ShoppingController {
                 Set<ShoppingItem> items = cart.getItems();
                 for (ShoppingItem item : items) {
                     if (item.getProduct().getProductid() == productid) {
-                        if (item.getItemqty()>=item.getProduct().getQtyinstock()) {
+                        if (item.getItemqty() >= item.getProduct().getQtyinstock()) {
                             return null; //Cannot get more than is in stock
                         }
                         item.setItemqty(item.getItemqty() + 1);
@@ -97,15 +97,24 @@ public class ShoppingController {
         Optional<Shopper> foundShopper = shopperRepo.findById(shopperid);
         Order order = null;
         if (foundShopper.isPresent()) {
-            Cart cart = foundShopper.get().getCart();
+            Shopper shopper = foundShopper.get();
+            Cart cart = shopper.getCart();
             if (cart != null) {
-                if (cart.getItems() != null) {
+                Set<ShoppingItem> items = cart.getItems();
+                if (items != null) {
                     order = cart.getAsOrder();
+                    order.setShippedstatus(0);
+                    order = orderRepo.save(order);
+                    for (ShoppingItem item : items) {
+                        item.setCart(null);
+                        shoppingitemRepo.save(item);
+                        shoppingitemRepo.delete(item);
+                    }
+                    cartRepo.save(cart);
                 }
             }
         }
-        order.setShippedstatus(1);
-        return orderRepo.save(order);
+        return order;
     }
 
 }

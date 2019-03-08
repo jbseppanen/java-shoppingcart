@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -79,7 +80,7 @@ public class ShoppingController {
             } else {
                 cart = new Cart();
                 cart.setShopper(foundShopper.get());
-                cartRepo.save(cart);
+                cart = cartRepo.save(cart);
             }
             ShoppingItem itemToAdd = new ShoppingItem();
             itemToAdd.setCart(cart);
@@ -115,6 +116,14 @@ public class ShoppingController {
             }
         }
         return order;
+    }
+
+    @PostMapping("/shopper")
+    public Shopper addNewShopper(@RequestBody Shopper shopper) throws URISyntaxException {
+//        shopper = shopperRepo.save(shopper);
+        Cart cart = new Cart();
+        cart.setShopper(shopper);
+        return shopperRepo.save(shopper);
     }
 
 }

@@ -1,7 +1,9 @@
 package com.lambdaschool.javashoppingcart.controllers;
 
+import com.lambdaschool.javashoppingcart.models.Order;
 import com.lambdaschool.javashoppingcart.models.Product;
 import com.lambdaschool.javashoppingcart.models.Supplier;
+import com.lambdaschool.javashoppingcart.repositories.OrderRepository;
 import com.lambdaschool.javashoppingcart.repositories.ProductRepository;
 import com.lambdaschool.javashoppingcart.repositories.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +25,17 @@ public class ShopkeeperController {
     @Autowired
     ProductRepository productRepo;
 
+    @Autowired
+    OrderRepository orderRepo;
+
     @GetMapping(value = "/suppliers")
     public List<Supplier> listAllSuppliers() {
         return supplierRepo.findAll();
+    }
+
+    @GetMapping(value = "/orders")
+    public List<Order> listAllOrders() {
+        return orderRepo.findAll();
     }
 
     @PostMapping("/product")
